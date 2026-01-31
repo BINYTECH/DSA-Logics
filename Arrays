@@ -1,0 +1,10 @@
+Array : An Array is a collection of elements with same datatype stored in a contiguos memory location.
+
+
+//swap function for swapping elements in an array
+public static void swap(int arr[],index1, index2)
+{
+int temp=arr[index1];
+arr[index1]=arr[index2];
+arr[index2]=temp;
+}
