@@ -1,0 +1,22 @@
+//Remove Duplicate Elements From an Array
+Input: [ 1, 2, 2, 3, 3, 3, 4, 5 ]
+Output: [ 1, 2, 3, 4, 5 ]
+
+//Personally I find as remove elements would shrink the size of array as I don't know the exact size so I will use ArrayList.
+//When the size of array is unknow use arraylist
+
+Approach 1:-
+public class solutio1{
+   public static void main(String [] args){
+    int arr={1,2,2,3,3,3,4,5};
+    ArrayList<Integer> result=new ArrayList<>();
+    for(int i=0;i<arr.length;i++){
+      if(res.contains(arr[i]){     //res.contains method checks for the element present on list or not
+          continue;
+         }
+      else{
+        res.add(arr[i]);
+       }
+  System.out.println(res);
+}
+}
