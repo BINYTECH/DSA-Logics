@@ -1,0 +1,59 @@
+// WAP to rotate an array by specific distance
+// Input: arr[] = {1, 2, 3, 4, 5, 6, 7},  d = 2
+// Output:  3 4 5 6 7 1 2
+Explaination: d=2 so 2 elements are rotated to the end of the array. So, 1 2 is rotated back
+
+So, Final result: 3, 4, 5, 6, 7, 1, 2
+
+//Brute-force Solution take an temporary array of same size[arr.length] and put the elements in it.
+
+Approach 1:-
+public class solution1{
+  public static void main(String[] args){
+    int arr[]={1,2,3,4,5,6,7};
+    int d=2;
+    int arr2[]=new int[arr.length];
+
+    for(int i=0;i<arr.length-d;i++){
+      arr2[i]=arr[i+d];
+      }
+    for(int j=0;j<d;j++){
+      arr2[arr.length-d+j]=arr[j];
+      }
+    System.out.println(Arrays.toString(arr2));
+    }
+  }
+
+ // Reversing the array elements 
+//Let say d=3 and arr={1,2,3,4,5,6,7,8}
+//First reverse the elements from 0 to d-1
+arr={3,2,1,4,5,6,7,8};
+//Then reverse the elements from d to arr.length-1
+arr={3,2,1,8,7,6,5,4};
+//Then reverse the whole array from 0 to arr.length-1
+arr={4,5,6,7,8,1,2,3};
+
+Approach 2:-
+public class Main {
+    public static void Rotate(int arr[], int start, int end){
+      while(start<end){
+        int temp=arr[start];
+        arr[start]=arr[end];
+        arr[end]=temp;
+        start++;
+        end--;
+      }
+    }
+    public static void main(String[] args) {
+      //Rotate an array
+      int arr[]={1,2,3,4,5,6,7,8};
+      int d=2;
+      Rotate(arr, 0, d-1);
+      Rotate(arr,d, arr.length-1);
+      Rotate(arr,0,arr.length-1);
+      System.out.println(Arrays.toString(arr));  
+  }
+}
+
+  
+}
