@@ -1,1 +1,44 @@
+//Write Java Program to Find the Tranpose of Matrix
 
+Input: 
+
+[ [ 1, 2, 3 ]
+
+  [ 4, 5, 6 ]
+
+  [ 7, 8, 9 ] ]
+
+Output: 
+
+[ [ 1, 4, 7]
+
+  [ 2, 5, 8]
+
+  [ 3, 6, 9] ]
+
+//Basically column elements will be the row elements on output or viceversa.
+
+//Creating a new array of same size
+//Then placing arr2[col][row] = arr[row][col] elements
+
+      int arr[][] ={{1,2,3},{4,5,6},{7,8,9}};
+      int arr2[][] = new int[3][3];
+      
+      for(int row=0;row<arr.length;row++){
+        for(int col=0;col<arr[row].length;col++){
+          arr2[col][row]=arr[row][col]; /*** This helps in putting the row elements in column
+        }
+      }
+      
+//Printing the 2-Dimensional array elements using for loop    
+      for(int row=0;row<arr.length;row++){
+        for(int col=0;col<arr[row].length;col++){
+          System.out.print(arr2[row][col]+ ",");
+        }
+        System.out.println();
+      }
+
+//Printing the 2-Dimensional array elements using for loop    
+      for(int[] row:arr2){
+        System.out.println(Arrays.toString(row));
+      }
