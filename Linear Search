@@ -1,0 +1,76 @@
+//Linear search is the simplest searching algorithm that checks each element sequentially until a match is found.
+
+public class Main {
+    public static void main(String[] args) {
+      //System.out.println("Hello, World!");
+      //Linear Search on String
+      int arr[]={23,42,55,38,97,12};
+      int target= 38;
+      System.out.println(LinearSearch(arr,target));
+  }
+//Linear search will return the index of element if found
+  public static int LinearSearch(int arr[], int target){
+    if(arr.length == 0){
+      return -1;
+    }
+    for(int i=0;i<arr.length;i++){
+      if(arr[i]==target){
+        return i;
+      }
+    }
+    return -1;
+  }
+}
+
+//Linear Search for finding a character on given String
+
+public class Main {
+    public static void main(String[] args) {
+      //Linear Search on String
+      String name="Binay";
+      char ch='A';
+      boolean checker=Search(name,ch);
+      
+      if(checker==true){
+        System.out.println(ch+" is present on the given string - " +name);
+      }else{
+        System.out.println(ch+" is not present on the given string - " + name);
+      }
+  }
+// Function for Linear search in String //
+  public static boolean Search(String str, char ch){
+    if(str.length() == 0){
+      return false;
+    }
+    for(int i=0;i<str.length();i++){
+      if(ch==str.charAt(i)){
+        return true;
+      }
+    }
+    return false;
+  }
+}
+
+// Function for Linear search in String using for each loop //
+
+  public static boolean Search(String str, char ch){
+    if(str.length() == 0){
+      return false;
+    }
+    for(int i:str.toCharArray()){
+      if(i == ch){
+        return true;
+      }
+    }
+    return false;
+  }
+}
+
+
+
+
+
+
+
+
+
