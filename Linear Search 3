@@ -21,3 +21,26 @@ public class Main {
     return new int []{-1,-1};
   }
 }
+
+
+//Linear Search of Maximum element in 2D Array
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+      //Linear Search in 2D Array
+      int arr1[][] = {{12,23,45},{2,34,56,17,11},{23,99,1}};
+      int ans = LinearSearch2D(arr1);
+      System.out.println(ans);
+  }
+  public static int LinearSearch2D(int arr[][]){
+    int max= Integer.MIN_VALUE;
+    for(int row=0;row<arr.length;row++){
+      for(int col=0;col<arr[row].length;col++){
+        if(arr[row][col]>max){
+          max=arr[row][col];
+        }
+      }
+    }
+    return max;
+  }
+}
