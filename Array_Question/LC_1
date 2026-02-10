@@ -1,0 +1,134 @@
+1. Two Sum
+Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
+You can return the answer in any order.
+
+Example 1:
+Input: nums = [2,7,11,15], target = 9
+Output: [0,1]
+Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+Example 2:
+Input: nums = [3,2,4], target = 6
+Output: [1,2]
+
+Example 3:
+Input: nums = [3,3], target = 6
+Output: [0,1]
+ 
+Constraints:
+2 <= nums.length <= 104
+-109 <= nums[i] <= 109
+-109 <= target <= 109
+Only one valid answer exists.
+
+Approach 1:-
+By using nested loop and cheking for the sum
+
+Solution:-
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int n=nums.length;
+        int ar[]=new int[2];
+        for(int i=0;i<n-1;i++)
+        {
+            for(int j=i+1;j<n;j++)
+            {
+                if(nums[i]+nums[j]==target)
+                {
+                    ar[0]=i;
+                    ar[1]=j;
+                }
+            }
+        }
+        return ar;
+    }
+Time Complexity: O(n 2) because of the nested iteration over the array [2].
+Space Complexity: O(1) since no additional data structures or collections are used [1].
+
+Approach 2:-
+Preserve Indices: Since sorting the array loses the original positions (indices),we first create a 2D array or a helper object
+to store each number alongside its original index.
+Sort: Sort the array based on the values. This takes \(O(n\log n)\).
+Two-Pointer Search: Place one pointer at the left (start) and one at the right (end).
+If sum == target: You've found the pair! Return their stored original indices.
+If sum < target: Move the left pointer forward to increase the sum.
+If sum > target: Move the right pointer backward to decrease the sum. 
+
+Solution:-
+import java.util.Arrays;
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int n = nums.length;
+        // Create a 2D array to store [value, original_index]
+        int[][] sortedWithIndices = new int[n][2];
+        
+        for (int i = 0; i < n; i++) {
+            sortedWithIndices[i][0] = nums[i];
+            sortedWithIndices[i][1] = i;
+        }
+
+        // Sort the 2D array based on the first column (the values)
+        // Time Complexity: O(n log n)
+        Arrays.sort(sortedWithIndices, (a, b) -> Integer.compare(a[0], b[0]));
+
+        // Two-pointer approach
+        int left = 0;
+        int right = n - 1;
+
+        while (left < right) {
+            int currentSum = sortedWithIndices[left][0] + sortedWithIndices[right][0];
+
+            if (currentSum == target) {
+                // Return the original indices stored in the second column
+                return new int[] {sortedWithIndices[left][1], sortedWithIndices[right][1]};
+            } else if (currentSum < target) {
+                left++; // Need a larger sum
+            } else {
+                right--; // Need a smaller sum
+            }
+        }
+
+        return new int[0]; // Should not reach here per problem constraints
+    }
+}
+
+Approach 3:-
+Iterate through the array once.
+For each number nums[i], calculate the complement: complement = target - nums[i].
+Check the Map: If the complement already exists in the map, you've found the pair! Return the index from the map and the current index i.
+Update the Map: If not found, add the current number and its index to the map and move to the next element.
+
+Solution:-
+import java.util.HashMap;
+import java.util.Map;
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        // Key: Number value, Value: Index in the array
+        Map<Integer, Integer> map = new HashMap<>();
+        
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            
+            // Check if we have already seen the required complement
+            if (map.containsKey(complement)) {
+                // Return the index of the complement and the current index
+                return new int[] { map.get(complement), i };
+            }
+            
+            // Store the current number and its index for future lookups
+            map.put(nums[i], i);
+        }
+        
+        // No solution found (though the problem guarantees one)
+        return new int[] {};
+    }
+}
+
+
+
+
+
+}
