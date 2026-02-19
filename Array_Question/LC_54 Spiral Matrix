@@ -1,0 +1,69 @@
+54. Spiral Matrix
+Given an m x n matrix, return all elements of the matrix in spiral order.
+
+Example 1:
+Input: matrix = [[1,2,3],[4,5,6],[7,8,9]]
+Output: [1,2,3,6,9,8,7,4,5]
+
+Example 2:
+Input: matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+Output: [1,2,3,4,8,12,11,10,9,5,6,7]
+ 
+
+Constraints:
+m == matrix.length
+n == matrix[i].length
+1 <= m, n <= 10
+-100 <= matrix[i][j] <= 100
+
+Approach:-
+Take four variable Starting ROW, Starting COL, Ending ROW, Ending COL
+[Fist move TOP Boundary, srow (Starting ROW) constant ==> elements covered by COL (Starting column to End column)  ]
+[Second move LEFT Boundary, ecol (Ending Column) constant ==> elements covered by ROW (Starting Row +1 to End row)  ]
+[Third move BOTTOM Boundary, erow (Ending ROW) constant ==> elements covered by COL (Ending column -1 to start column) ]
+If(srow==erow){ break;}
+[Fourth move RIGHT Boundary, scol (Starting Column) constant ==> elements covered by ROW (Ending Row -1 to Starting Row +1)  ]
+If(scol==ecol){ break;}
+
+Solution:-
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        int srow=0;
+        int erow=matrix.length-1;
+        int scol=0;
+        int ecol=matrix[0].length-1;
+        List<Integer> ans=new ArrayList<>();
+
+        while(srow<=erow && scol<=ecol){
+            //For printing TOP line row will be constant and loop will run from scol to ecol
+            for(int i=scol;i<=ecol;i++){
+                ans.add(matrix[srow][i]);
+            }
+            //For printing LEFT line ecol will be constant and loop will run from srow+1 to erow
+            for(int j=srow+1;j<=erow;j++){
+                ans.add(matrix[j][ecol]);
+            }
+            //For printing BOTTOM line erow will be constant and 
+            //loop will run from ecol-1 to scol
+            for(int k=ecol-1;k>=scol;k--){
+                if(srow==erow){
+                    break;
+                }
+                ans.add(matrix[erow][k]);
+            }
+             //For printing RIGHT line erow will be constant and 
+            //loop will run from ecol-1 to scol
+            for(int m=erow-1;m>=srow+1;m--){
+                if(scol==ecol){
+                    break;
+                }
+                ans.add(matrix[m][scol]);
+            }
+            srow++;
+            erow--;
+            scol++;
+            ecol--;
+        }
+      return ans;
+    }
+}
