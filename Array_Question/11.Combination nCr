@@ -1,0 +1,31 @@
+11. Combination Mathematics
+nCr = n!/r!*(n-r)!
+ Example 6C2 = 6!/2!*4!
+
+             6*5*4*3*2*1
+ ==>      -----------------
+           (2*1) *(4*3*2*1)
+
+We can simply write
+            6*5
+ ==>      -------
+           (2*1)
+We can do 
+           6      5 
+ ==>      --- * ----
+           1      2
+
+so we can run the loop till r, for optimizing
+
+#Combination formula will be used to find value of pascal traingle if row and column value is given.
+
+Solution:-
+
+  public static long nCr(int n, int r){
+    long res=1;
+    for(int i=0;i<r;i++){
+      res= res*(n-i);
+      res=res/(i+1);
+    }
+     return res;
+  }
