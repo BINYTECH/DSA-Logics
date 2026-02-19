@@ -18,6 +18,10 @@ We can do
 so we can run the loop till r, for optimizing
 
 #Combination formula will be used to find value of pascal traingle if row and column value is given.
+public static void PascalValueatRowandCol(row-1,col-1)
+{
+//Same nCr function will generate the value of pascal triangle at given row and col.
+}
 
 Solution:-
 
