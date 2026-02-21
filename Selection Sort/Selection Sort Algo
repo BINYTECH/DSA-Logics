@@ -1,0 +1,42 @@
+Selection Sort Approach:-
+Find the max element and place it to the last index or do vice versa.
+Take minimum element and place it to the left-most index of the array.
+
+ALGO:
+Run a loop on the array elements
+Store the last index
+Search for max element Index
+Swap the elements with arr[maxIndex] to arr[last]
+Run the loop until the array is sorted.
+
+Solution:-
+public class Main {
+   public static void main(String args[]){
+     int arr[]={5,1,9,2,6,-1,-56};
+     SelectionSort(arr);
+   } 
+    public static int getMax(int arr[], int start, int end){
+      int max=start;
+      for(int i=start;i<=end;i++){
+        if(arr[max] < arr[i]){
+          max=i;
+        }
+      }
+      return max;
+    }
+    public static void swapElement(int arr[], int first, int last){
+      int temp=arr[first];
+      arr[first]=arr[last];
+      arr[last]=temp;
+    }
+//Function for Selection Sort
+  public static void SelectionSort(int arr[]){  
+    for(int i=0;i<arr.length;i++){
+      int last=arr.length-i-1;
+      int maxIndex=getMax(arr,0,last);// this function call will give the index of Maximum element
+      swapElement(arr,maxIndex, last); // this function call will swap the array elements with arr[last] to arr[maxIndex], since we know that index of maximum element
+    }
+    System.out.println(Arrays.toString(arr));
+  }
+  
+}
