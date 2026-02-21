@@ -1,0 +1,35 @@
+Bubble Sort Algorithm is an algorithm used to sort array elements by comparing with adjacent elements.
+Best Case Time Complexity O(n)
+Worst Case Time Complexity O(n2)
+
+ALGORITHM:-
+==> Run the loop from elements in array
+==> For every element compare with previous and current element
+==> if element is smaller than swap the elements
+
+
+
+
+
+ALGO:=
+import java.util.*;
+public class Main {  
+    public static void main(String args[]){
+    int arr[]={5,1,2,4,3};
+     bubbleSort(arr);
+    }
+    public static void bubbleSort(int arr[]){
+      //Run the loop for n-1 steps
+      for(int i=0;i<arr.length;i++){
+        //For each step, max value will come at last respective Index
+        for(int j=1;j<arr.length-i;j++){
+          //Swap elements if current elements is smaller than previous elements
+          if(arr[j] < arr[j-1]){
+            int temp=arr[j];
+            arr[j]=arr[j-1];
+            arr[j-1]=temp;
+          }
+        }
+      }
+    }
+}
