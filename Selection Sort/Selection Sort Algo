@@ -2,6 +2,9 @@ Selection Sort Approach:-
 Find the max element and place it to the last index or do vice versa.
 Take minimum element and place it to the left-most index of the array.
 
+BEST Case Time Complexity: O(n2)
+Worst Case Time Complexity: O(n2)
+
 ALGO:
 Run a loop on the array elements
 Store the last index
