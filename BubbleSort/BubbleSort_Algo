@@ -8,7 +8,7 @@ ALGORITHM:-
 ==> if element is smaller than swap the elements
 
 
-
+[Note for every iteration, largest element will move to the end of the array with respective index.]
 
 
 ALGO:=
