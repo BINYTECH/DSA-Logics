@@ -1,0 +1,65 @@
+504. Base 7
+Given an integer num, return a string of its base 7 representation.
+
+Example 1:
+Input: num = 100
+Output: "202"
+
+Example 2:
+Input: num = -7
+Output: "-10"
+ 
+Constraints:
+-107 <= num <= 107
+
+Approach: Check whether output should be in integer or String
+Here we are printing for String.
+
+Logic:- 
+Divide the given number by 7 and store the remainder
+check if number is negative take make it positive by multiplying with -1
+Then do the same with Negative number as well
+Divide the number by 7 and store the remainder
+
+Edge case:-
+ 0 - 6 ==> "0"
+Numbers from 0 - 6 will be return as it is in String format.
+
+
+Solution:-
+class Solution {
+    public String ReverseString(String str){  //Function to reverse the String
+        String rev="";
+        for (int i = str.length() - 1; i >= 0; i--) {
+             rev += str.charAt(i);
+      }
+      return rev;
+    }
+    public String convertToBase7(int num) {
+        String ans="";
+        int lastDigit=0;
+        int negNum=num*-1; int posNum=num;
+        if(num==0){
+            return "0";
+        }
+        //Check for Negative number
+        if(num < 0){
+            while(negNum>0){
+            lastDigit= negNum % 7 ;
+            ans +=lastDigit;
+            negNum=negNum/7;
+            }
+        }else{
+         //Check for Negative number
+          while(posNum>0){
+            lastDigit= posNum % 7 ;
+            ans +=lastDigit;
+            posNum=posNum/7;
+          }
+        }
+        if(num>0){
+            return ReverseString(ans);
+        }
+        return ("-" + ReverseString(ans));
+    }
+}
