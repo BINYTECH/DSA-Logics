@@ -36,7 +36,7 @@ class Solution {
         {
            return nums[0];
         }
-
+       //max amd maxProd two variable to keep product
         for(int i=0;i<nums.length;i++){
              //max=0;
              maxProd=1;
