@@ -1,0 +1,37 @@
+
+INSERTION SORT ALGORITHM:-
+  Start with the second element as the first element is assumed to be sorted.
+  Compare the second element with the first if the second is smaller then swap them.
+  Move to the third element, compare it with the first two, and put it in its correct position
+  Repeat until the entire array is sorted.
+
+
+Solution:-
+import java.util.*;
+public class Main {
+   public static void main(String args[]){
+   int arr[]={2,5,4,1,7};
+   insertionSort(arr);
+   } 
+   public static void Swap(int arr[], int start, int end){ //For swapping the array elements
+     int temp=arr[start];
+     arr[start]=arr[end];
+     arr[end]=temp;
+   }
+ public static void insertionSort(int arr[]){
+   for(int i=0;i<arr.length -1; i++){
+     for(int j=i+1;j>0;j--){
+       if(arr[j]<arr[j-1]){
+         Swap(arr, j, j-1);
+       }else{
+         break;
+       }
+     }
+   }
+   System.out.println(Arrays.toString(arr));
+ }
+  
+}
+
+
+
