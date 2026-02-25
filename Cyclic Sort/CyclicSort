@@ -1,0 +1,42 @@
+
+** When given numbers from a range i.e 1 to N then use Cyclic Sort
+
+Cyclic Sort Algorithm:-
+    1.Start with an unsorted array of n elements.
+    2.Initialize a variable, cycleStart, to 0.
+    3.For each element in the array, compare it with every other element to its right. If there are any elements that are smaller than the current element, increment cycleStart.
+    4.If cycleStart is still 0 after comparing the first element with all other elements, move to the next element and repeat step 3.
+    5.Once a smaller element is found, swap the current element with the first element in its cycle. The cycle is then continued until the current element returns to its original position.
+    6.Repeat steps 3-5 until all cycles have been completed.
+
+
+Solution:-
+import java.util.*;
+
+public class Main {
+   public static void main(String args[]){
+   int arr[]={5,4,3,2,1};
+   CyclicSort(arr);
+   } 
+   public static void Swap(int arr[], int start, int end){
+     int temp=arr[start];
+     arr[start]=arr[end];
+     arr[end]=temp;
+   }
+ public static void CyclicSort(int arr[]){
+    int i=0;
+    while(i < arr.length){
+      int crtIndex=arr[i]-1;
+      if(arr[i] != arr[crtIndex]){
+        Swap(arr, i, crtIndex);
+      }else{
+        i++;
+      }
+    }
+   System.out.println(Arrays.toString(arr));
+ }
+  
+}
+
+
+
