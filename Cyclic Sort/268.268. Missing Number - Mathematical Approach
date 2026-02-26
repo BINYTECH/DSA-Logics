@@ -29,6 +29,8 @@ Approach:-
    //Calculate the sum of n numbers by using sun=n*(n+1)/2 formula
    //Then Calculate the sum of array elements
    //Return the difference between (Sum of n elements- Sum of array elements)
+Time Complexity - O(n)
+Space Complexity - O(1)
    
 Solution:-
 import java.util.*;
