@@ -1,0 +1,9 @@
+
+
+ The Bit Manipulation Approach (XOR)
+XORing a number with itself results in 0 (6^6 == 0). By XORing all indices from to with all values in the array, 
+every number that appears in both the index and the array will cancel out, leaving only the missing number. 
+
+Time Complexity: O(n)
+Space Complexity: O(1)
+ 
