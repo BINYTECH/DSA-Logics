@@ -1,0 +1,53 @@
+448. Find All Numbers Disappeared in an Array
+Given an array nums of n integers where nums[i] is in the range [1, n], return an array of all the integers in the range [1, n] that do not appear in nums.
+
+Example 1:
+Input: nums = [4,3,2,7,8,2,3,1]
+Output: [5,6]
+
+Example 2:
+Input: nums = [1,1]
+Output: [2]
+ 
+Constraints:
+n == nums.length
+1 <= n <= 105
+1 <= nums[i] <= n
+ 
+Follow up: Could you do it without extra space and in O(n) runtime? You may assume the returned list does not count as extra space.
+
+Approach: Cyclic sort the array, with cyclic sort arrays will be on index will contain element (index+1) when elements [1,n]
+          On 0th place 1 will be there.
+          On 1th place 2 will be there.
+          On 2th place 3 will be there.
+          On 3th place 4 will be there.
+          On 4th place 5 will be there.
+          On nth place (n+1) will be there.
+         if array element is not equal index+1 then that number is missing.
+   
+
+Solution:-
+class Solution {
+    public List<Integer> findDisappearedNumbers(int[] nums) {
+        int i=0;
+        while(i<nums.length){
+            int crtIndex=nums[i]-1;
+            if(nums[i] != nums[crtIndex]){
+                int temp=nums[i];
+                nums[i]=nums[crtIndex];
+                 nums[crtIndex]=temp;
+            }else{
+                i++;
+            }
+        }
+
+        //Need to check if array element is equal to (index + 1), if not store the List with (value+1)
+        List<Integer> ans= new ArrayList<Integer>();
+        for(int k=0;k<nums.length;k++){
+            if(nums[k] != k+1){
+                ans.add(k+1);
+            }
+        }
+       return ans;
+    }
+}
