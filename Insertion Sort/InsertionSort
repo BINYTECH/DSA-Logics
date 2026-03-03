@@ -5,6 +5,14 @@ INSERTION SORT ALGORITHM:-
   Move to the third element, compare it with the first two, and put it in its correct position
   Repeat until the entire array is sorted.
 
+The algorithm divides the list into two parts: a sorted portion at the beginning and an unsorted portion at the end. 
+* Start with the second element: We assume the first element (index 0) is already "sorted" by itself.
+* Pick the "Key": Take the next element from the unsorted portion. This is our "key."
+* Compare: Compare the key with the elements in the sorted portion (moving from right to left).
+* Shift: If the element in the sorted portion is larger than the key, shift that element one position to the right to make space.
+* Insert: Once you find an element smaller than the key (or reach the beginning of the list), insert the key into the empty slot.
+* Repeat: Move to the next unsorted element and repeat until the entire array is sorted. 
+
 
 Solution:-
 import java.util.*;
