@@ -22,6 +22,7 @@ Follow-up: Could you solve the problem in linear time and in O(1) space?
 Approach: Sort the array element, as in the question it is given that majority element would be present and it should appear more that (n/2) times
           So it exactly present at nums.length/2 index position
 
+Time Complexity : O(nlogn)
 
 Solution:
  Using built-in sort method of Java
