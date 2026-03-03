@@ -1,0 +1,55 @@
+169. Majority Element
+Given an array nums of size n, return the majority element.
+The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+
+ 
+Example 1:
+Input: nums = [3,2,3]
+Output: 3
+
+Example 2:
+Input: nums = [2,2,1,1,1,2,2]
+Output: 2
+ 
+Constraints:
+n == nums.length
+1 <= n <= 5 * 104
+-109 <= nums[i] <= 109
+The input is generated such that a majority element will exist in the array.
+ 
+Follow-up: Could you solve the problem in linear time and in O(1) space?
+
+Approach : Using Bayer Moore Voting Algorithm
+          Step-by-Step Execution
+          * Initialize: Start with a candidate (set to any value) and a count set to 0.
+          * Iterate: Loop through every number in the array:
+          * Check Count: If count is 0, assign the current number as the new candidate.
+          * Update Count:
+                  If the current number is the same as the candidate, increment count (+1).
+                  If the current number is different, decrement count (-1).
+          * Result: After one pass, the candidate is your majority element.
+
+Why it works
+Because the majority element occurs more than times, even if every other element "teams up" to decrement the count,
+they don't have enough numbers to keep the majority element's count at zero by the end of the array.
+
+Important Note
+This algorithm assumes a majority element always exists as per the question given. 
+//If it might not exist, you must do a second pass to count the occurrences of the final candidate and verify it exceeds.
+
+
+Solution:
+class Solution {
+    public int majorityElement(int[] nums) {
+      //Using Bayer- Moore Voting Algorithm
+      int count=0;
+      int candidate=0;
+      for(int num:nums){
+        if(count==0){
+            candidate=num;
+        }
+        count +=(num==candidate)? 1:-1;
+      } 
+      return candidate;
+    }
+}
