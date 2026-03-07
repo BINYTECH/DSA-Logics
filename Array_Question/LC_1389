@@ -49,7 +49,12 @@ class Solution {
 
         // ArrayList to Array Conversion
         int[] arr = targetArr.stream().mapToInt(i -> i).toArray();
-        return arr;
+        //ArrayList to Array Conversion 2
+         int arr[]=new int[targetArr.size()];
+          for(int j=0;j<targetArr.size();j++){
+            arr[j]=targetArr.get(j);
+           }
+         return arr;
     }
 }
 0 <= index[i] <= i
