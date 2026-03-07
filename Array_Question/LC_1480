@@ -36,3 +36,24 @@ class Solution {
         return ans;
     }
 }
+
+Approach 2: With single run over array elements
+
+Time Complexity: O(n) , Space Complexity: O(1)
+Smart Approach : Running with single run over the loop.
+Initialize SUM with first array elements i.e SUM=nums[0];
+Run the loop from index=1 till end
+           increment SUM += nums[i];
+           store the SUM on same index i.e nums[i] = SUM;
+
+Solution:
+class Solution {
+    public int[] runningSum(int[] nums) {
+        int sum=nums[0];
+        for(int i=1;i<nums.length;i++){
+              sum +=nums[i];
+              nums[i]=sum;
+        }
+        return nums;
+    }
+}
