@@ -15,3 +15,26 @@ Output: [4,5,8,9]
 Constraints:
 1 <= nums1.length, nums2.length <= 1000
 0 <= nums1[i], nums2[i] <= 1000
+
+
+Solution:
+import java.util.*;
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+       Set<Integer> setA=new HashSet<>();
+       for(int num:nums1){
+        setA.add(num);
+       }
+       
+       for(int num:nums2){
+        setA.add(num);
+       }
+
+       int arr[]=new int[setA.size()];
+       int index=0;
+       for(int i:setA){
+        arr[index++]=i;
+       }
+       return arr;
+    }
+}
