@@ -1,0 +1,33 @@
+1784. Check if Binary String Has at Most One Segment of Ones
+Given a binary string s ​​​​​without leading zeros, return true​​​ if s contains at most one contiguous segment of ones. Otherwise, return false.
+
+Example 1:
+
+Input: s = "1001"
+Output: false
+Explanation: The string has two segments of size 1.
+Example 2:
+
+Input: s = "110"
+Output: true
+ 
+
+Constraints:
+
+1 <= s.length <= 100
+s[i]​​​​ is either '0' or '1'.
+s[0] is '1'.
+
+Core Logic:
+If a string has more than one segment of ones, it must transition from a '1' to a '0' (ending the first segment) 
+and eventually back from a '0' to a '1' (starting a new segment). This transition creates the specific pattern "01". 
+Valid (True): "11100" — No "01" pattern. The '1's are all in one block.
+Invalid (False): "11001" — Contains the pattern "01". This indicates a second block of '1's started after a gap. 
+Using contains method to check "01" pattern
+
+Solution:
+class Solution {
+    public boolean checkOnesSegment(String s) {
+        return !s.contains("01");
+    }
+}
