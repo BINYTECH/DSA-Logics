@@ -1,0 +1,18 @@
+Two Pointer Approach
+The two-pointer approach is an efficient algorithm technique using two indices to traverse linear data structures (arrays/linked lists) to solve problems,
+often reducing time complexity from \(O(n^2)\) to \(O(n)\). It is primarily used on sorted data to find pairs, manage sub-arrays, or reverse elements,
+with pointers moving in the same or opposite directions.
+
+Core Types of Two-Pointer Approaches
+Opposite Ends (Converging): 
+One pointer starts at the beginning left = 0, and the other at the end right = n-1. They move toward each other until they meet.
+    Common Use: Sorted array pair sum, palindrome verification, reversing arrays.
+
+Same Direction (Fast/Slow or Sliding Window): 
+Both pointers start at the beginning but move at different speeds or conditions.
+    Fast/Slow: Used to find the middle element or detect cycles in linked lists.
+    Sliding Window: One pointer expands the window, while the other contracts it.
+
+Parallel Pointers:
+Used on two separate arrays/lists, moving through them simultaneously.
+    Common Use: Merging two sorted arrays
