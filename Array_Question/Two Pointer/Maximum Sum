@@ -1,0 +1,34 @@
+Given an array and a constant k=4 , take consecutive k elments nad print the maximum sum that holds.
+
+//Constant Window
+
+public class Main {
+    public static void main(String[] args) {
+    int arr[]={1,2,3,4,5};
+    System.out.println(MaximumWindow(arr, 4));
+    }
+   public static int MaximumWindow(int arr[], int k){
+     int l=0;
+     int r=k-1;
+     int n=arr.length-1;
+     int maxSum=0, sum=0;
+     
+     //Mantaining the sum
+     for(int i=l;i<=r;i++){
+       sum+=arr[i];
+     }
+     //System.out.println(sum);
+     
+     while(r<n){
+       //First eleminating the left element from the sum
+       sum=sum-arr[l];
+       l++; // Increasing the left pointer
+       r++;//Incrementing the right pointer
+       //Adding the right element to the sum
+       sum=sum+arr[r];
+       //Storing the Maxium sum for every consecutive k elements
+       maxSum=Math.max(maxSum,sum);
+     }
+     return maxSum;
+   }
+}
