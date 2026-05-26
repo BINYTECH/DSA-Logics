@@ -64,3 +64,29 @@ class Main {
     }
 }
 }
+
+
+====> Finding no of subarrays with some condition
+
+Let suppose find no of subarrays with constant sum= k
+  then x = find no of subarray sum <= k
+   and y = find no of subarray whose sum <=k-1
+then the answer will always be (x-y)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
