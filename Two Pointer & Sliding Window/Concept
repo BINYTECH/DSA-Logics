@@ -73,7 +73,7 @@ Let suppose find no of subarrays with constant sum= k
    and y = find no of subarray whose sum <=k-1
 then the answer will always be (x-y)
 
-
+====>Finding the shortest/minimum subarray or minimum length with some condition
 
 
 
