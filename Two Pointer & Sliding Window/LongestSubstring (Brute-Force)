@@ -1,0 +1,48 @@
+Longest Substring Without Repeating Characters
+
+Given a string, S. Find the length of the longest substring without repeating characters.
+
+
+Example 1
+Input : S = "abcddabac"
+Output : 4
+
+Explanation : The answer is "abcd" , with a length of 4.
+
+Example 2
+Input : S = "aaabbbccc"
+Output : 2
+
+Explanation : The answers are "ab" , "bc". Both have maximum length 2.
+
+Approach: 
+Store an array size of 256 as 256 characters are available.
+Update with 1 if string has that character and claculate the length.
+
+Solution:
+
+class Main {
+    public static void main(String[] args) {
+        String s="kmjmqmrm";
+        System.out.println(SubstringLen(s));
+    }
+    public static int SubstringLen(String s){
+        String ans="";
+       int hash[] =new int[256];
+       int maxLen=0,len=0;
+       for(int i=0;i<s.length();i++){
+           for(int j=i;j<s.length();j++){
+               
+               if(hash[s.charAt(j)]==1){
+                   break;
+               }else{
+                   ans+=s.charAt(j);
+                   len=j-i+1;
+                   maxLen=Math.max(len,maxLen);
+                   hash[s.charAt(j)]=1;
+               }
+           }
+       }
+       return maxLen;
+    }
+}
