@@ -19,6 +19,9 @@ Approach:
 Store an array size of 256 as 256 characters are available.
 Update with 1 if string has that character and claculate the length.
 
+Time Complexity: O(N2)
+Space Complexity: O(256)
+
 Solution:
 
 class Main {
