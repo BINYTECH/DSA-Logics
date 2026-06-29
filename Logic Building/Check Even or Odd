@@ -1,0 +1,71 @@
+Given a number n, check whether it is even or odd. Return true for even and false for odd.
+
+Examples: 
+Input: n = 15
+Output: false
+Explanation: 15 % 2 = 1, so 15 is odd .
+
+Input: n = 44
+Output: true
+Explanation: 44 % 2 = 0, so 44 is even.
+
+Naive Approach:
+Checking for the remainder when divided by 2. 
+If the remainder is 0, the number is even, otherwise it is odd. 
+
+For example, when we divide 13 by 2, we get remainder as 1 and when we divide 14 by 2, we get remainder as 0.
+
+Time Complexity: O(1)
+Space Complexity: O(1)
+
+Solution:
+public class Main {
+    public static void main(String[] args) {
+     Scanner scn=new Scanner(System.in);
+     int n=scn.nextInt();
+     if(isEven(n)){
+      System.out.println("True");
+     }else{
+      System.out.println("False");
+     }
+    }
+    public static boolean isEven(int n){
+      if(n%2 == 0){
+        return true;
+      }
+      return false;
+    }
+}
+
+Alternate Approach: Using Bitwise AND operator
+
+The last bit of all odd numbers is always 1, while for even numbers it’s 0. So,
+when performing bitwise AND operation with 1, odd numbers give 1, and even numbers give 0.
+Note: Bitwise operators are extremely fast and efficient because they operate directly at the binary level,
+making them significantly faster than arithmetic or logical operations.
+
+Solution:
+public class Main {
+    public static void main(String[] args) {
+     Scanner scn=new Scanner(System.in);
+     int n=scn.nextInt();
+     if(isEven(n)){
+      System.out.println("True");
+     }else{
+      System.out.println("False");
+     }
+    }
+    public static boolean isEven(int n){
+      if((n& 1)==0){
+        return true;
+      }
+      return false;
+    }
+}
+
+
+
+
+
+
+
