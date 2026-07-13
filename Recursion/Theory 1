@@ -1,0 +1,13 @@
+Recursion is a function that call itself.
+
+In Java, Recursion is a process in which a function calls itself directly or indirectly is called recursion and the corresponding function is called a recursive function.
+Using a recursive algorithm, certain problems can be solved quite easily. 
+A few Java recursion examples are Towers of Hanoi (TOH), Inorder/Preorder/Postorder Tree Traversals, DFS of Graph, etc.
+
+* Base Condition is a condition where recursion function will stop making new function calls.
+
+
+Why RECURSION ?
+# It helps in solving bigger/complex problems in a simpler way.
+# We can convert recursion solutions into iteration and vice versa.
+# Space complexity is not constant because of recursive calls.
