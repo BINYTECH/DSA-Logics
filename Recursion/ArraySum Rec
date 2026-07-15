@@ -1,0 +1,27 @@
+Sum of array elements using recursion
+Given an array of integers, find sum of array elements using recursion. 
+
+Examples: 
+Input: arr = [1, 2, 3]
+Output: 6
+Explanation: 1 + 2 + 3 = 6
+
+Input: arr = [15, 12, 13, 10]
+Output: 50
+Explanation: 15 + 12 + 13 + 10 = 50
+
+Solution:
+
+public class Main {
+    public static void main(String[] args) {
+      int arr[]={1,2,3};
+      int n=arr.length;
+      System.out.println(ArraySum(arr, n));
+    }
+   public static int ArraySum(int arr[],int n){
+      if(n<=0){
+        return 0;
+      }
+      return ArraySum(arr,n-1)+arr[n-1];
+   }
+}
