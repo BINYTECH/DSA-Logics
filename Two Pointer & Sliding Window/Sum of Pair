@@ -1,0 +1,41 @@
+Example Problem - Sum of Pair Equal to Target
+Given a sorted array arr (sorted in ascending order) and a target, find if there exists any pair of elements (arr[i], arr[j]) such that their sum is equal to the target.
+
+Illustration : 
+
+Input: arr[] = [10, 20, 35, 50], target =70
+Output:  true
+Explanation : There is a pair (20, 50) with given target.
+
+Input: arr[] = [10, 20, 30], target =70
+Output :  false
+Explanation : There is no pair with sum 70
+
+Input: arr[] = [-8, 1, 4, 6, 10, 45], target = 16
+Output: true
+Explanation : There is a pair (6, 10) with given target.
+
+Solution:
+
+public class Main {
+    public static void main(String[] args) {
+      int arr[]={1,2,3,4,5,6};
+      int ts=7;
+      System.out.println(TargetSum(arr,ts));
+    }
+    public static boolean TargetSum(int arr[], int tar){
+        int left_pointer=0;
+        int right_pointer=arr.length-1;
+
+        while(left_pointer<right_pointer){
+          if(arr[left_pointer]+arr[right_pointer]==tar){
+            return true;
+          }else if(arr[left_pointer]+arr[right_pointer]<tar){
+            left_pointer++;
+          }else{
+            right_pointer--;
+          }
+        }
+        return false;
+    }
+}
