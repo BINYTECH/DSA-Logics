@@ -37,3 +37,35 @@ Solution:
   }
   return maxLen;
  }
+
+
+Solution(Using HashMap):
+
+public class Main{
+    public static void main(String args[]){
+        //HashMap<Integer, Character> ans=new HashMap<>();
+        String s="aabbccdd";
+        System.out.println(LongestSubstring(s));
+
+    }
+    public static int LongestSubstring(String s){
+        int left_pointer=0;
+        int right_pointer=0;
+        int n=s.length();
+        int maxLen=0;
+        HashMap<Integer, Character> ans=new HashMap<>();
+
+        while(right_pointer<n){
+            char chk=s.charAt(right_pointer);
+
+            if(ans.containsValue(chk)){
+                left_pointer=right_pointer;
+            }else{
+                ans.put(right_pointer,chk);
+                maxLen=Math.max(maxLen, right_pointer-left_pointer+1);
+            }
+           right_pointer++;
+        }
+        return maxLen;
+    }
+}
