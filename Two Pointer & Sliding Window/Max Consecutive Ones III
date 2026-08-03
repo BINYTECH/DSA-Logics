@@ -74,3 +74,36 @@ Better Approach: Using two pointers
        return maxLen;
     }
 }
+
+Better Approach:
+    public static int LongestConsecutiveOne(int nums[], int k){
+       int n=nums.length-1;
+       int maxLen=0;
+       int left_pointer=0;
+       int right_pointer=0;
+       int length=0;
+       int countZero=0;
+
+       while(right_pointer<n){
+        //Condition to check zerocount
+          if(nums[right_pointer]==0){
+            countZero++;
+          }
+          //Condition to bring back zeroCount to k
+          if(countZero>k){
+            if(nums[left_pointer]==0){
+              countZero--;
+              left_pointer++;
+             }
+           }
+           //Condition to terminate and stor the consecutive One's length
+          if(countZero <=k){
+            length=right_pointer-left_pointer+1;
+            maxLen=Math.max(maxLen, length);
+          }
+          right_pointer++;
+       }
+       return maxLen;
+    }
+}
+
