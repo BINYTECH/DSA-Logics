@@ -49,3 +49,48 @@ class Solution {
      return maxLen;
     }
 }
+
+
+Solution: Two Pointer Approach
+
+   public static int TotalFruits(int []fruits){
+      int n=fruits.length;
+      int maxLen=0;
+      int left_pointer=0;
+      int right_pointer=0;
+      HashMap<Integer,Integer> basket=new HashMap<>();
+      int freq=0;
+
+      while(right_pointer<n){
+        if(basket.containsKey(fruits[right_pointer])){
+          freq=basket.get(fruits[right_pointer]);
+          basket.put(fruits[right_pointer],freq++);
+        }else{
+          basket.put(fruits[right_pointer],1);
+        }
+
+
+        if(basket.size()>2){
+          while(basket.size() > 2){
+             freq=basket.get(fruits[left_pointer]);
+             basket.put(fruits[left_pointer],freq-1);
+             if(basket.get(fruits[left_pointer])==0){
+              basket.remove(fruits[left_pointer]);
+             }
+            left_pointer++;
+          }
+        }
+
+        if(basket.size()<=2){
+          maxLen=Math.max(maxLen,right_pointer-left_pointer+1);
+        }
+        right_pointer++;
+      }
+
+      return maxLen;
+    }
+}
+
+
+
+
