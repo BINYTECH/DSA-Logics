@@ -1,0 +1,40 @@
+Number of Substrings Containing All Three Characters
+Given a string s , consisting only of characters 'a' , 'b' , 'c'.Find the number of substrings that contain at least one occurrence of all these characters 'a' , 'b' , 'c'.
+
+
+Example 1
+Input : s = "abcba"
+Output : 5
+Explanation : The substrings containing at least one occurrence of the characters 'a' , 'b' , 'c' are "abc" , "abcb" , "abcba" , "bcba" , "cba".
+
+Example 2
+Input : s = "ccabcc"
+Output : 8
+Explanation : The substrings containing at least one occurrence of the characters 'a' , 'b' , 'c' are "ccab" , "ccabc" , "ccabcc" , "cab" , "cabc" , "cabcc" , "abc" , "abcc".
+
+Brute- Force Approach: Check for all the subarrays that contains the character 'a', 'b','c'.
+
+Solution:
+public class Main{
+    public static void main(String args[]){
+        String s="abccba";
+        System.out.println(LongestSubstring(s));
+    }
+    public static int LongestSubstring(String s){
+      int n=s.length();
+      HashSet<Character> ans=new HashSet();
+      int count=0;
+
+      for(int i=0;i<n;i++){
+        ans.clear();
+        for(int j=i;j<n;j++){
+           char chk=s.charAt(j);
+           ans.add(chk);
+           if(ans.contains('a') && ans.contains('b') && ans.contains('c') ){
+            count++;
+           }
+        }
+      }
+      return count;
+    }
+}
