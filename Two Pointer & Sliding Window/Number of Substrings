@@ -1,0 +1,68 @@
+Number of Substrings Containing All Three Characters
+
+Given a string s , consisting only of characters 'a' , 'b' , 'c'.Find the number of substrings that contain at least one occurrence of all these characters 'a' , 'b' , 'c'.
+
+
+Example 1
+Input : s = "abcba"
+Output : 5
+Explanation : The substrings containing at least one occurrence of the characters 'a' , 'b' , 'c' are "abc" , "abcb" , "abcba" , "bcba" , "cba".
+
+Example 2
+Input : s = "ccabcc"
+Output : 8
+Explanation : The substrings containing at least one occurrence of the characters 'a' , 'b' , 'c' are "ccab" , "ccabc" , "ccabcc" , "cab" , "cabc" , "cabcc" , "abc" , "abcc".
+
+Brute-force Approach:
+Generate all the substring and check on the HashSet whether a,b,c contains or not
+
+Solution: 
+
+class Solution {    
+    public int numberOfSubstrings(String s) {
+         int n=s.length();
+      HashSet<Character> ans=new HashSet();
+      int count=0;
+
+      for(int i=0;i<n;i++){
+        ans.clear();
+        for(int j=i;j<n;j++){
+           char chk=s.charAt(j);
+           ans.add(chk);
+           if(ans.contains('a') && ans.contains('b') && ans.contains('c') ){
+            count++;
+           }
+        }
+      }
+      return count;
+    }
+}
+
+Better Approach: Using single run over array elements
+
+Solution:
+
+public class Solution{
+    public static int LongestSubstring(String s){
+      int n=s.length();
+      int count=0;
+
+      int last_seen[]={-1,-1,-1};
+      for(int i=0;i<n;i++){
+        char chk=s.charAt(i);
+        last_seen[chk-'a']=i;
+
+        if((last_seen[0] != -1) && (last_seen[0] != -1) && (last_seen[0] != -1) ){
+          count=count+(1+ Math.min(last_seen[0],(Math.min(last_seen[1],last_seen[2]))));
+        }
+      }
+
+      return count;
+    }
+}
+
+
+
+
+
+
