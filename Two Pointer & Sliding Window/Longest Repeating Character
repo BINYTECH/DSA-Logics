@@ -57,3 +57,56 @@ public class Main{
     }
 }
 
+
+Two-Pointer Approach: Move right pointer in forward direction and check for th character frequency is equal to the k then store length of that substrig if it doesn't fit the condition then trim from left-hand side of string.
+
+Solution:
+public class Main{
+    public static void main(String args[]){
+        int arr[]={1,2,3,4,5};
+        String k="AABCDD";
+        int m=2;
+        System.out.println(LongestRepeating(k,m));
+    }
+    public static int LongestRepeating(String s, int k){
+        int n=s.length();
+        int right_pointer=0;
+        int left_pointer=0;
+        int maxFreq=0;
+        int maxLen=0;
+        int hashArr[]=new int[26];
+
+        while(right_pointer<n){
+          char chk=s.charAt(right_pointer);
+          hashArr[chk-'A']++;
+          maxFreq=Math.max(maxFreq,hashArr[chk-'A']);
+          //System.out.println(maxFreq);
+
+          //Invalid condition when character changes is greater than k then trimmed down to
+          // valid substring by moving forward the left_pointer and decrementing the count
+          while((right_pointer-left_pointer+1)-maxFreq > k){
+            char chk2=s.charAt(left_pointer);
+            hashArr[chk2-'A']--;
+            //maxFreq=0;
+            //System.out.println("2. ==>"+maxFreq);
+            for(int idx=0;idx<hashArr.length;idx++){
+              maxFreq=Math.max(maxFreq,hashArr[idx]);
+              
+            }
+            left_pointer++;
+          }
+
+          //Valid Condition store the substring length
+          if((right_pointer-left_pointer+1)-maxFreq<=k){
+            maxLen=Math.max(maxLen,(right_pointer-left_pointer+1));
+          }
+          right_pointer++;
+        }
+        
+        return maxLen;
+    }
+}
+
+
+
+
