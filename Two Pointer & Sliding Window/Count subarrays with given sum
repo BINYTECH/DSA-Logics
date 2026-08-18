@@ -1,0 +1,42 @@
+Count subarrays with given sum
+
+Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k.
+
+Example 1
+Input: nums = [1, 1, 1], k = 2
+Output: 2
+Explanation: In the given array [1, 1, 1], there are two subarrays that sum up to 2: [1, 1] and [1, 1]. Hence, the output is 2.
+
+Example 2
+Input: nums = [1, 2, 3], k = 3
+Output: 2
+Explanation: In the given array [1, 2, 3], there are two subarrays that sum up to 3: [1, 2] and [3]. Hence, the output is 2.
+
+Brute-Force Approach : Is to check the sum of all subarray (Nested Loop)
+Time Complexity: O(N2)
+Space Complexity: O(1)
+
+Solution:
+public class Main{
+    public static void main(String args[]){
+        int arr[]={1,2,3,-3,1,1,1,4,2,-3};
+        System.out.println(subarraySum(arr, m));
+    }
+    public static int subarraySum(int[] nums, int k) {
+        int n=nums.length;
+        int subArr_count=0;
+        
+
+        for(int i=0;i<n;i++){
+            int Element_Sum=0;
+            for(int j=i;j<n;j++){
+                Element_Sum+=nums[j];
+
+                if(Element_Sum==k){
+                    subArr_count++;
+                }
+            }
+        }
+        return subArr_count;
+    }
+}
