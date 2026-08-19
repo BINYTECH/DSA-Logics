@@ -111,3 +111,36 @@ class Solution {
     }
 }
 
+Optimal Solution: Using Two pointer Approach
+
+Solution:
+public class Main{
+    public static void main(String args[]){
+        int arr[]={1,1,1,1,1,2,2};int m=5;
+        System.out.println(LongestSubarray(arr, m));
+    }
+       public static int LongestSubarray(int[] nums, int k) {
+       int n=nums.length;
+       int left_pointer=0;
+       int right_pointer=0;
+       int prefixSum=0;
+       int maxLen=0;
+
+       while(right_pointer<n){
+        prefixSum+=nums[right_pointer];
+
+        //Invalid Condition if prefixSumis greater than k then we will trim and make it equal to chk
+        if(prefixSum>k){
+          prefixSum-=nums[left_pointer];
+          left_pointer++;
+        }
+
+        //Valid Condition
+        if(prefixSum==k){
+          maxLen=Math.max(maxLen,right_pointer-left_pointer+1);
+        }
+        right_pointer++;
+       }
+       return maxLen;
+    }
+}
