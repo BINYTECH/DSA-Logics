@@ -70,4 +70,31 @@ public class Solution {
     }
 }
 
+Optimized Approach: With calculating the prefixSum i.e. if prefixSum-k is present over the HashMap
+Time Complexity : O(N)
+Solution:
+class Solution {
+    public int longestSubarray(int[] nums, int k) {
+       int n=nums.length;
+       int maxLen=0;
+       HashMap<Integer,Integer> store=new HashMap<>();
+       int prefixSum=0;
+
+       for(int i=0;i<n;i++){
+        prefixSum+=nums[i];
+        store.put(prefixSum,i);
+
+        if(prefixSum==k){
+            maxLen=Math.max(maxLen,i+1);
+        }
+
+        int rem=prefixSum-k;
+        if(store.containsKey(rem)){
+            int len=i-store.get(rem);
+            maxLen=Math.max(maxLen,len);
+        }
+       } 
+       return maxLen;
+    }
+}
 
