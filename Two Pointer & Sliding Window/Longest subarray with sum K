@@ -71,7 +71,18 @@ public class Solution {
 }
 
 Optimized Approach: With calculating the prefixSum i.e. if prefixSum-k is present over the HashMap
+Core Logic : The core idea relies on a simple mathematical property of prefix sums.
+Prefix Sum (Prefix_{i}): 
+This is the cumulative sum of all elements from index 0 to index i.
+
+Subarray Sum (k): If a subarray ending at index i sums up to (k), 
+it means some earlier prefix sum (Prefix_{j}) must satisfy the equation: ( Prefix_{i}- Prefix_{j} = k)
+Rearranging this gives: ( Prefix_{j}= Prefix_{i} -k )
+
+The Hash Map: Your map stores <PrefixSum, First_Seen_Index>. 
+By searching the map for rem = prefixSum - k, you are instantly checking if a matching earlier prefix sum exists. If it does, the subarray between those two indices sums to (k).
 Time Complexity : O(N)
+
 Solution:
 class Solution {
     public int longestSubarray(int[] nums, int k) {
@@ -79,6 +90,8 @@ class Solution {
        int maxLen=0;
        HashMap<Integer,Integer> store=new HashMap<>();
        int prefixSum=0;
+     //For handling prefiSum becoming zero initialize HashMap with (0,-1)
+      store.put(0,-1);
 
        for(int i=0;i<n;i++){
         prefixSum+=nums[i];
