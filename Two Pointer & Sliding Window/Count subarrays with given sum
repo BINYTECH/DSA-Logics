@@ -74,3 +74,37 @@ public class Main{
        return subArray_Count;
     }
 }
+
+Optimized Approach : Using Two Pointer
+
+Solution:
+public class Main{
+    public static void main(String args[]){
+        int arr[]={1,1,1};int m=2;
+        System.out.println(CountSubarray(arr, m));
+    }
+public static int CountSubarray(int[] nums, int k) {
+       int n=nums.length;
+       int left_pointer=0;
+       int right_pointer=0;
+       int prefixSum=0;
+       int CountSubarray=0;
+
+       while(right_pointer<n){
+        prefixSum+=nums[right_pointer];
+
+        //Invalid Condition if prefixSumis greater than k then we will trim and make it equal to chk
+        if(prefixSum>k){
+          prefixSum-=nums[left_pointer];
+          left_pointer++;
+        }
+
+        //Valid Condition
+        if(prefixSum==k){
+          CountSubarray++;
+        }
+        right_pointer++;
+       }
+       return CountSubarray;
+    }
+}
