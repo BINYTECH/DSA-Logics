@@ -1,0 +1,67 @@
+Binary Subarrays With Sum
+Given a binary array nums and an integer goal. Return the number of non-empty subarrays with a sum goal.
+
+A subarray is a continuous part of the array.
+
+Example 1
+Input : nums = [1, 1, 0, 1, 0, 0, 1] , goal = 3
+Output : 4
+
+Explanation : The subarray with sum 3 are
+[1, 1, 0, 1]
+
+[1, 1, 0, 1, 0]
+
+[1, 1, 0, 1, 0, 0]
+
+[1, 0, 1, 0, 0, 1].
+
+Example 2
+
+Input : nums = [0, 0, 0, 0, 1] , goal = 0
+
+Output : 10
+
+Explanation : Some of the subarray with sum 0 are
+
+[0]
+
+[0, 0]
+
+[0, 0, 0]
+
+[0, 0, 0, 0]
+
+Constraints:-
+1 <= nums.length <= 3*104
+0 <= goal <= nums.length
+nums consist of only 0 and 1.
+
+Naive Approach; Checking all the subarrays sum with goal sum using nested loop
+
+Solution:
+
+import java.util.*;
+
+public class Main{
+    public static void main(String args[]){
+        int arr[]={1, 1, 0, 1, 0, 0, 1};int goal=3;
+        System.out.println(Binary_Sub_Count(arr, goal));
+    }
+    public static int Binary_Sub_Count(int arr[], int k){
+      int n=arr.length;
+      int SubArray_Count=0;
+      for(int i=0;i<n;i++){
+       int sum=0;
+        for(int j=i;j<n;j++){
+          sum+=arr[j];
+
+          if(sum==k){
+            SubArray_Count++;
+          }
+        }
+      }
+      return SubArray_Count;
+    }
+}
+
