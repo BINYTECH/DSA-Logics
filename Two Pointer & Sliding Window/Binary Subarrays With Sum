@@ -65,3 +65,37 @@ public class Main{
     }
 }
 
+
+Better Approach: Using Two Pointer
+Calling the Count subarray func for one with goal and one with goal-1
+
+public class Main{
+    public static void main(String args[]){
+        int arr[]={1, 1, 0, 1, 0, 0, 1};int goal=3;
+        System.out.println(Binary_Sub_Count(arr, goal)- Binary_Sub_Count(arr,goal-1));
+    }
+    public static int Binary_Sub_Count(int arr[], int k){
+      int n=arr.length;
+      int left_pointer=0;
+      int right_pointer=0;
+      int sum=0;
+      int SubArray_Count=0;
+
+      while(right_pointer<n){
+       sum+=arr[right_pointer];
+       
+       //Invalid Condition
+       while(sum>k){
+        sum-=arr[left_pointer];
+        left_pointer++;
+       }
+
+       //Valid Condition
+       SubArray_Count=SubArray_Count+(right_pointer-left_pointer+1);
+       right_pointer++;
+      }
+
+      return SubArray_Count;
+    }
+}
+
