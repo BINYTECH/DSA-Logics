@@ -1,0 +1,33 @@
+Subarray with k different integer
+
+Brute Force Approach: Check for all the subarray upto k size
+Solution: Use HashSet foor storing unique element
+import java.util.*;
+
+public class Main{
+    public static void main(String args[]){
+        int arr[]={ 1, 2, 1, 3, 4};int m=3;
+        System.out.println(Subarray_Diff_Integer(arr,m));
+    }
+    public static int Subarray_Diff_Integer(int arr[], int k){
+      
+      int n=arr.length;
+      int subArray_Cnt=0;
+
+      for(int i=0;i<n;i++){
+        HashSet<Integer> checker=new HashSet<>();
+        for(int j=i;j<n;j++){
+          checker.add(arr[j]);
+          
+          if(checker.size()>k){
+            break;
+          }
+          if(checker.size()==k){
+            subArray_Cnt++;
+          }
+        }
+      }
+      return subArray_Cnt;
+    }
+}
+
