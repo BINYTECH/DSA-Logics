@@ -1,0 +1,14 @@
+Fibonacci Number
+
+public class Main{
+    public static void main(String args[]){
+        System.out.println(Fibonacci(3));
+    }
+    public static int Fibonacci(int n){
+      if(n<2){
+        return n;
+      }
+
+      return (Fibonacci(n-1)+Fibonacci(n-2));
+    }
+}
