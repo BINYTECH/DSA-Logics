@@ -43,3 +43,45 @@ public class Main{
      return Max_Min_Value;
    }
 }
+
+
+Recursively Using Helper function:
+
+Solution:
+public class Main{
+    public static void main(String args[]){
+        int arr[]={ 1,2,3,4};int m=3;
+        //System.out.println(Subarray_Diff_Integer(arr,m));
+        //ArrayList<Integer> res=Max_Min_Value(arr);
+        System.out.println(Max_Min_Value(arr));
+    }
+    public static ArrayList<Integer> Max_Min_Value(int arr[]){
+      return find_Max_Min(arr,arr.length-1);
+    }
+   public static ArrayList<Integer> find_Max_Min(int arr[],int n){
+
+    //Base Condition
+    if(n==1){
+      ArrayList<Integer> base=new ArrayList<>();
+      base.add(arr[0]);
+      base.add(arr[0]);
+      return base;
+    }
+
+    ArrayList<Integer> result=find_Max_Min(arr,n-1);
+
+    //Update min
+     if(arr[n]< result.get(0)){
+      result.set(0,arr[n]);
+     }
+     //Update Max
+     if(arr[n]>result.get(1)){
+      result.set(1,arr[n]);
+     }    
+     return result;
+   }
+}
+
+
+
+
