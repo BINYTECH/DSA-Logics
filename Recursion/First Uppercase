@@ -1,0 +1,27 @@
+Given a string find its first uppercase letter
+
+Examples : 
+Input : geeksforgeeKs
+Output : K
+
+Input  : geekS
+Output : S
+Method 1: linear search 
+Using linear search, find the first character which is capital 
+
+Solution:
+public class Main{
+    public static void main(String args[]){
+        int arr[]={ 23,24,25,26,27};int t=25;
+        String s="geeksforgeeKs";
+        System.out.println(First_Uppercase(s));
+    }
+    public static char First_Uppercase(String str){
+       for(int i=0;i<str.length();i++){
+        if(Character.isUpperCase(str.charAt(i))){
+          return str.charAt(i);
+        }
+       }
+       return 0;
+    }
+}
