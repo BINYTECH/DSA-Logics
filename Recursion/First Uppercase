@@ -12,7 +12,6 @@ Using linear search, find the first character which is capital
 Solution:
 public class Main{
     public static void main(String args[]){
-        int arr[]={ 23,24,25,26,27};int t=25;
         String s="geeksforgeeKs";
         System.out.println(First_Uppercase(s));
     }
