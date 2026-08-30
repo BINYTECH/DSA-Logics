@@ -1,0 +1,48 @@
+First uppercase letter in a string (Iterative and Recursive)
+
+Given a string find its first uppercase letter
+Examples : 
+
+Input : geeksforgeeKs
+Output : K
+
+Input  : geekS
+Output : S
+
+Linear Search Solution:
+
+public class Main{
+    public static void main(String args[]){
+        int arr[]={ 23,24,25,26,27};int t=25;
+        String s="geeksforgeekS";
+        System.out.println(First_Uppercase(s,0));
+    }
+    public static char First_Uppercase(String str, int index){
+       
+       for(int i=0;i<str.length();i++)
+       if(Character.isUpperCase(str.charAt(i))){
+        return str.charAt(i);
+       }
+       return '0';
+    }
+}
+
+Recursive Solution:
+
+public class Main{
+    public static void main(String args[]){
+        int arr[]={ 23,24,25,26,27};int t=25;
+        String s="geeksforgeeks";
+        System.out.println(First_Uppercase(s,0));
+    }
+    public static char First_Uppercase(String str, int index){
+       
+       if(index >= str.length()){
+        return '0';
+       }
+       if(Character.isUpperCase(str.charAt(index))){
+        return str.charAt(index);
+       }
+       return First_Uppercase(str, index+1);
+    }
+}
