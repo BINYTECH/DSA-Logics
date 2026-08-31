@@ -1,0 +1,27 @@
+Given a string calculate length of the string using recursion. 
+
+Examples: 
+
+Input: str = "abcd"
+Output: 4
+Explanation: The string "abcd" has a length of 4.
+
+Input: str = "GEEKSFORGEEKS"
+Output: 13
+
+Recursive Solution:
+
+public class Main{
+    public static void main(String args[]){
+       String s="Binay";
+       System.out.println(String_Length(s));
+    }
+ 
+    public static int String_Length(String s) {
+      //Base Condition is when string reaches null value
+      if(s.equals("")){
+        return 0;
+      }
+        return String_Length(s.substring(1))+1;
+    }
+}
