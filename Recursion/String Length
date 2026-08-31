@@ -9,6 +9,9 @@ Explanation: The string "abcd" has a length of 4.
 Input: str = "GEEKSFORGEEKS"
 Output: 13
 
+Time Complexity: O(n2), where n is the length of the string.
+Auxiliary Space: O(n2)
+
 Recursive Solution:
 
 public class Main{
