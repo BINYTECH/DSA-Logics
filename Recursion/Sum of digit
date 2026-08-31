@@ -1,0 +1,28 @@
+Sum of digit of a number using recursion
+
+Given a number, we need to find sum of its digits using recursion.
+
+Examples: 
+
+Input: 12345
+Output: 15
+Explanation: Sum of digits → 1 + 2 + 3 + 4 + 5 = 15
+
+Input: 45632
+Output: 20 
+
+Recursive Solution:
+public class Main{
+    public static void main(String args[]){
+       int n=45632
+       System.out.println(Sum_Digit_Rec(n));
+    }
+ 
+    public static int Sum_Digit_Rec(int n) {
+      //Base Case
+         if(n==0){
+          return 0;
+         }
+         return Sum_Digit_Rec(n/10)+(n%10);
+    }
+}
