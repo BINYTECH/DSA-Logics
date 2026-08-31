@@ -18,6 +18,10 @@ Recursive Case: Add x to result and make a recursive call with y as y-1
 
 Optimization : Since the number of recursive calls is proportional to y and x * y = y * x, we  swap x and y if y is larger than x to reduce the number of recursive calls.
 
+
+Time Complexity: O(min(x,y))
+Auxiliary Space: O(min(x,y)), The extra space is used in the recursive call stack.
+
 Recursive Solution:
 
 public class Main{
