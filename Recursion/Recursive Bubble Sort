@@ -40,6 +40,8 @@ Base Case: If array size is 1, return.
 Do One Pass of normal Bubble Sort. This pass fixes last element of current subarray.
 Recur for all elements except last of current subarray.
 
+Time Complexity: O(n*n)
+Auxiliary Space: O(n)
 
 Solution:
 
@@ -73,7 +75,18 @@ public class Main{
     }
 }
 
+Question:
+1. Difference between iterative and recursive bubble sort?
+Ans. Recursive bubble sort runs on O(n) auxiliary space complexity 
+whereas iterative bubble sort runs on O(1) auxiliary space complexity.
 
+2. Which is faster iterative or recursive bubble sort?
+Ans. Based on the number of comparisons in each method, 
+the recursive bubble sort is better than the iterative bubble sort, but the time complexity for both the methods is same.
+
+3. Which sorting method we should prefer more iterative or recursive bubble sort?
+Ans. Both the methods complete the computation at the same time(according to time complexity analysis) 
+but iterative code takes less memory than recursive one, so we should prefer iterative bubble sort more than recursive bubble sort.
 
 
 
