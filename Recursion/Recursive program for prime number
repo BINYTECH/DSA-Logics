@@ -1,0 +1,35 @@
+Recursive program for prime number
+Given a number n, check whether it's prime number or not using recursion.
+Examples: 
+ 
+
+Input : n = 11
+Output : Yes
+
+Input : n = 15
+Output : No
+
+Recursive Solution:
+
+public class Main{
+    public static void main(String args[]){
+       int n=7;
+       System.out.println(Rec_Check_Prime(n,2));
+    }
+ 
+    public static boolean Rec_Check_Prime(int n, int div) {
+      
+      //Base Case
+      if(n<=2){
+        return (n==2)?true:false;
+      }
+      if(n%div == 0){
+        return false;
+      }
+      if(div*div > n){
+        return true;
+      }
+      //Check for next divisor
+      return Rec_Check_Prime(n,div+1);
+    }
+}
