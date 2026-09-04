@@ -8,3 +8,9 @@ Some of the most common are:
 ArrayList
 HashSet
 HashMap
+
+
+Decision-making statements in Java allow a program to choose different execution paths based on specified conditions. They help control the flow of a program by executing certain blocks of code only when particular conditions are true. These statements are essential for implementing logic, validations, and user-driven actions in applications.
+
+Improve flexibility and intelligence of programs.
+Support simple, multiple, and nested decision-making scenarios.
