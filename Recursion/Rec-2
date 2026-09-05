@@ -1,3 +1,14 @@
 This Recursion Notes for the GATE Exam provides a comprehensive guide to one of the fundamental concepts in computer science, recursion, specifically 
 tailored for those preparing for the Graduate Aptitude Test in Engineering (GATE). 
   Recursion is a powerful problem-solving technique where a function calls itself during its execution, and it plays a significant role in algorithm design and programming.
+
+
+Steps to Implement Recursion
+
+Step1 - Define a base case: Identify the simplest (or base) case for which the solution is known or trivial. This is the stopping condition for the recursion, as it prevents the function from infinitely calling itself.
+
+Step2 - Define a recursive case: Define the problem in terms of smaller subproblems. Break the problem down into smaller versions of itself, and call the function recursively to solve each subproblem.
+
+Step3 - Ensure the recursion terminates: Make sure that the recursive function eventually reaches the base case, and does not enter an infinite loop.
+
+Step4 - Combine the solutions: Combine the solutions of the subproblems to solve the original problem.
