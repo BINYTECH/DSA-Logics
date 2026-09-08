@@ -43,6 +43,7 @@ class Solution {
         StringBuilder result=new StringBuilder();
 
         //Invert the bits while traversing backward to automatically reverse the string
+       //We will traverse through the string from backward direction to get thr reverse value
         for(int i=sb.length()-1;i>=0;i--){
             if(sb.charAt(i)=='0'){
                 result.append('1');
@@ -53,14 +54,20 @@ class Solution {
         return result.toString();
     }
     public char findKthBit(int n, int k) {
+       //First we will create a String with storing "0"
        StringBuilder currentString=new StringBuilder("0");
 
+       //To find the Nth Binary String we will run through loop
        for(int i=2;i<=n;i++){
+        //to.String() methods convert StringBuilder strings into normal string
+        //getInvertedRev is helper function to get Inverted Reverse of current String
         String invertedRev=getInvertedRev(currentString.toString());
 
+         //Then as per the formula we will generate the Nth Binary String
         //Si - 1 + "1" + reverse(invert(Si - 1)
         currentString.append("1").append(invertedRev);
        }
+       //Final answer would be the charAt at (k-1) of currentSting
        return currentString.charAt(k-1);
     }
 }
