@@ -1,0 +1,12 @@
+Example: Consider an example to find whether a key exists in an array or not using linear search. The idea is to traverse the array and check every element if it is equal to the key or not.
+
+The pseudo-code is as follows:
+
+bool linearSearch(int a[], int n, int key)
+{
+    for (int i = 0; i < n; i++) {
+        if (a[i] == key)
+            return true;
+    }
+    return false;
+}
