@@ -40,3 +40,13 @@ class Solution {
         return ans;
     }
 }
+
+////More precisely we can use pow 
+class Solution {
+    public double myPow(double x, int n) {
+        return (double) Math.pow(x,n);
+
+    }
+}
+
+////More precisely we can use it by 
